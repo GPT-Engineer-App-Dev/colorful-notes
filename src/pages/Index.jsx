@@ -45,12 +45,12 @@ const Index = () => {
     <Container maxW="container.xl" p={4}>
       <VStack spacing={4} align="stretch">
         <Flex justify="space-between" align="center" mb={4}>
-          <Text fontSize="2xl" fontWeight="bold">Note Taking App</Text>
+          <Text fontSize="2xl" fontWeight="bold" color="text">Note Taking App</Text>
           <IconButton
             aria-label="Add Note"
             icon={<FaPlus />}
             onClick={handleAddNote}
-            colorScheme="teal"
+            colorScheme="primary"
           />
         </Flex>
         <Box>
@@ -67,34 +67,34 @@ const Index = () => {
             mb={2}
           />
           {isEditing ? (
-            <Button onClick={handleUpdateNote} colorScheme="teal">
+            <Button onClick={handleUpdateNote} colorScheme="primary">
               Update Note
             </Button>
           ) : (
-            <Button onClick={handleAddNote} colorScheme="teal">
+            <Button onClick={handleAddNote} colorScheme="primary">
               Add Note
             </Button>
           )}
         </Box>
         <Grid templateColumns="repeat(auto-fill, minmax(250px, 1fr))" gap={4}>
           {notes.map((note) => (
-            <GridItem key={note.id} p={4} borderWidth="1px" borderRadius="md">
-              <Text fontSize="xl" fontWeight="bold" mb={2}>
+            <GridItem key={note.id} p={4} borderWidth="1px" borderRadius="md" bg="background">
+              <Text fontSize="xl" fontWeight="bold" mb={2} color="text">
                 {note.title}
               </Text>
-              <Text mb={2}>{note.content}</Text>
+              <Text mb={2} color="text">{note.content}</Text>
               <Flex justify="space-between">
                 <IconButton
                   aria-label="Edit Note"
                   icon={<FaEdit />}
                   onClick={() => handleEditNote(note.id)}
-                  colorScheme="blue"
+                  colorScheme="secondary"
                 />
                 <IconButton
                   aria-label="Delete Note"
                   icon={<FaTrash />}
                   onClick={() => handleDeleteNote(note.id)}
-                  colorScheme="red"
+                  colorScheme="accent"
                 />
               </Flex>
             </GridItem>
